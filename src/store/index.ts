@@ -6,15 +6,23 @@ Vue.use(Vuex);
 export default new Vuex.Store({
   state: {
     drawer: false,
+    // eslint-disable-next-line @typescript-eslint/no-array-constructor
+    addresses: Array(),
   },
   mutations: {
     toggleSideMenu(state) {
       state.drawer = !state.drawer;
     },
+    addAddress(state, address) {
+      state.addresses.push(address);
+    },
   },
   actions: {
     toggleSideMenu({ commit }) {
       commit("toggleSideMenu");
+    },
+    addAddress({ commit }, address) {
+      commit("addAddress", address);
     },
   },
   modules: {},
