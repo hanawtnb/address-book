@@ -5,7 +5,7 @@
       <v-app-bar-nav-icon @click="toggleSideMenu"></v-app-bar-nav-icon>
       <span>My address book</span>
       <v-spacer></v-spacer>
-      <v-toolbar-items>
+      <v-toolbar-items v-if="$store.state.login_user">
         <v-btn @click="logout">ログアウト</v-btn>
       </v-toolbar-items>
     </v-app-bar>
