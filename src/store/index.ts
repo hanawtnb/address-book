@@ -6,11 +6,15 @@ Vue.use(Vuex);
 
 export default new Vuex.Store({
   state: {
+    login_user: null,
     drawer: false,
     // eslint-disable-next-line @typescript-eslint/no-array-constructor
     addresses: Array(),
   },
   mutations: {
+    setLoginUser(state, user) {
+      state.login_user = user;
+    },
     toggleSideMenu(state) {
       state.drawer = !state.drawer;
     },
@@ -19,6 +23,9 @@ export default new Vuex.Store({
     },
   },
   actions: {
+    setLoginUser({ commit }, user) {
+      commit("setLoginUser", user);
+    },
     login() {
       const google_auth_provider = new firebase.auth.GoogleAuthProvider();
       firebase.auth().signInWithRedirect(google_auth_provider);
